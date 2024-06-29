@@ -6,6 +6,8 @@ const User = require('../models/user');
 
 const router = express.Router();
 
+router.get('/', userController.getUsers);
+
 router.post(
   '/register',
   [
