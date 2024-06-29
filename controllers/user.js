@@ -47,3 +47,29 @@ exports.signupUser = async (req, res, next) => {
   }
   res.status(201).json({ users: createdUser.toObject({ getters: true }) });
 };
+
+exports.loginUser = async (req, res, next) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const error = new HttpError('Ensure the login details are ok', 422);
+    return next(error);
+  }
+
+  const { email, password } = req.body;
+
+  let existingUser;
+
+  try {
+    existingUser = await User.findOne({ email: email });
+  } catch (err) {
+    const error = new HttpError('Login failed, please retry', 500);
+    return next(error);
+  }
+
+  if (!existingUser || existingUser.password !== password) {
+    const error = new HttpError('Email or password is incorrect', 401);
+    return next(error);
+  }
+  res.status(201).json({ message: 'successfully logged in' });
+};
