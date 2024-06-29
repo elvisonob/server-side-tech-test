@@ -8,19 +8,3 @@ exports.getPosts = (req, res, next) => {
     ],
   });
 };
-
-exports.createPosts = (req, res, next) => {
-  const name = req.body.name;
-  const email = req.body.email;
-  const password = req.body.password;
-
-  res.status(201).json({
-    message: 'Posts created successfully',
-    posts: {
-      id: new Date().toISOString(),
-      name: name,
-      email: email,
-      password: password,
-    },
-  });
-};
