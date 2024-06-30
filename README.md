@@ -2,11 +2,9 @@
 Server-side: Register and Login Implementation
 
 <h1>Project Description</h1>
-This is the Server-side application of my Register and Login Application. I used a database to securely store User's registration details.
+This is the Server-side of my Register and Login Application. I used a database to securely store User's registration details.
 <br>
 Error Handling and Validation are properly carried out to wholly mitigate against server-side or database manipulation.
-<br>
-Users can view the list of registered members, assuring them that they can verify the veracity of their own registration details.
 <br>
 <br>
 I used the NodeJS/Express for the backend.
