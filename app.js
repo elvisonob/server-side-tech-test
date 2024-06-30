@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const feedRoutes = require('./routes/feed.js');
 const userRoutes = require('./routes/user.js');
 const HttpError = require('./models/http-error');
 const mongoose = require('mongoose');
@@ -28,7 +27,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/user', feedRoutes);
 app.use('/user', userRoutes);
 
 app.use((req, res, next) => {
